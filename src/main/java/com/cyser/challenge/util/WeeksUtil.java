@@ -32,16 +32,16 @@ public class WeeksUtil {
 		int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
 		int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
 		if(dayOfMonth==1 && !first) {
-			calendar.add(Calendar.DATE,-1);
-			calendar.set(Calendar.HOUR,23);
-			calendar.set(Calendar.MINUTE,59);
-			calendar.set(Calendar.SECOND,59);
+			calendar.set(Calendar.HOUR,0);
+			calendar.set(Calendar.MINUTE,0);
+			calendar.set(Calendar.SECOND,0);
 			return calendar.getTime();
 		}
 		if(dayOfWeek==5) {
-			calendar.set(Calendar.HOUR,23);
-			calendar.set(Calendar.MINUTE,59);
-			calendar.set(Calendar.SECOND,59);
+			calendar.add(Calendar.DATE,1);
+			calendar.set(Calendar.HOUR,0);
+			calendar.set(Calendar.MINUTE,0);
+			calendar.set(Calendar.SECOND,0);
 			return calendar.getTime();
 			
 		}

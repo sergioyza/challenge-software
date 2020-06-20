@@ -3,6 +3,7 @@ package com.cyser.challenge.util;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,10 +26,10 @@ public class TransactionUtil {
 					}
 				System.out.println("listTransactionDataEntity: "+listTransactionDataEntity);
 				TransactionDataEntity transactionDataEntity = listTransactionDataEntity.stream().findFirst().get();
-				Calendar mainCalendar = Calendar.getInstance();
+				Calendar mainCalendar = GregorianCalendar.getInstance();
 				mainCalendar.setTime(transactionDataEntity.getDate());
 				Date startWeek = weeks.startFridayOrFirstMonth(mainCalendar);
-				Calendar lastDayWeek = Calendar.getInstance();
+				Calendar lastDayWeek = GregorianCalendar.getInstance();
 				lastDayWeek.setTime(startWeek);
 				Date endCalendar = weeks.EndWeek(lastDayWeek,true); 
 				System.out.println("startWeek: "+startWeek);
@@ -69,12 +70,9 @@ public class TransactionUtil {
 				transactionReportResponseDto.setAmmount(ammountUnit);
 				transactionReportResponseDto.setTotalAmount(total);
 				listTransactionReportResponseDto.add(transactionReportResponseDto);
-				
+				System.out.println("transactionReportResponseDto: "+transactionReportResponseDto);
 				total = total+ammountUnit;
-				valor--;
-				if(valor==0) {
-					return null;
-				}
+				
 				return historialInfo(valor,listTransactionReportResponseDto,listTransactionDataEntity,total);
 				}catch (Exception e) {
 					System.out.println("Error: "+e.getStackTrace());

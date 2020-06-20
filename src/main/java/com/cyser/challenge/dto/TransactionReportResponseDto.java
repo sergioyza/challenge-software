@@ -2,10 +2,14 @@ package com.cyser.challenge.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class TransactionReportResponseDto {
 
 	private long id;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date weekStart;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date weeekFinish;
 	private int Quantity;
 	private float ammount;
