@@ -1,6 +1,6 @@
 package com.cyser.challenge.dto;
 
-public class ResponseExceptionDto {
+public class ExceptionResponseDto {
 
 	private String status;
 

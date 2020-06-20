@@ -1,6 +1,6 @@
 package com.cyser.challenge.dto;
 
-public class ResponseSumDto {
+public class SumResponseDto {
 
 	private long user_id;
 	private float suma;

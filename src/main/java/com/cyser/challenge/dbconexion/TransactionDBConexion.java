@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.cyser.challenge.dto.ResponseExceptionDto;
+import com.cyser.challenge.dto.ExceptionResponseDto;
 import com.cyser.challenge.dto.TransactionDataRequestDto;
 import com.cyser.challenge.dto.TransactionDataResponseDto;
 import com.cyser.challenge.entity.TransactionDataEntity;
@@ -23,7 +23,7 @@ public class TransactionDBConexion {
 
 	public ResponseEntity<?> addTransaction(TransactionDataRequestDto transactionDataRequestDto) {
 		
-		ResponseExceptionDto responseExceptionDto= new ResponseExceptionDto();
+		ExceptionResponseDto responseExceptionDto= new ExceptionResponseDto();
 		Date date = new Date();
 		
 		try {		
@@ -44,7 +44,7 @@ public class TransactionDBConexion {
 
 	public ResponseEntity<?> showTransaction(long transaction_id, long user_id) {
 		
-		ResponseExceptionDto responseExceptionDto= new ResponseExceptionDto();
+		ExceptionResponseDto responseExceptionDto= new ExceptionResponseDto();
 		
 		try {		
 			
@@ -64,7 +64,7 @@ public class TransactionDBConexion {
 	}
 
 	public ResponseEntity<?> listTransaction(long user_id) {
-ResponseExceptionDto responseExceptionDto= new ResponseExceptionDto();
+ExceptionResponseDto responseExceptionDto= new ExceptionResponseDto();
 		
 		try {		
 			

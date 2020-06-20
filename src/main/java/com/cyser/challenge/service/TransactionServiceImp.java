@@ -1,6 +1,8 @@
 package com.cyser.challenge.service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,15 +12,21 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.cyser.challenge.dbconexion.TransactionDBConexion;
-import com.cyser.challenge.dto.ResponseSumDto;
+import com.cyser.challenge.dto.SumResponseDto;
 import com.cyser.challenge.dto.TransactionDataRequestDto;
+import com.cyser.challenge.dto.TransactionReportResponseDto;
 import com.cyser.challenge.entity.TransactionDataEntity;
+import com.cyser.challenge.util.TransactionUtil;
+import com.cyser.challenge.util.WeeksUtil;
 
 @Service
 public class TransactionServiceImp implements TransactionInterface {
 
 	@Autowired
 	TransactionDBConexion transactionDBConexion;
+	
+	@Autowired
+	TransactionUtil transactionUtil;
 	
 	@Override
 	public ResponseEntity<?> addTransaction(TransactionDataRequestDto transactionDataRequestDto) {
@@ -41,7 +49,7 @@ public class TransactionServiceImp implements TransactionInterface {
 	@Override
 	public ResponseEntity<?> sumTransaction(long user_id) {
 		
-		ResponseSumDto responseSumDto = new ResponseSumDto();
+		SumResponseDto responseSumDto = new SumResponseDto();
 		
 		ArrayList<TransactionDataEntity> listTransactionDataEntity = (ArrayList<TransactionDataEntity>) transactionDBConexion.listTransaction(user_id).getBody();
 		//get id User from list
@@ -59,8 +67,11 @@ public class TransactionServiceImp implements TransactionInterface {
 
 	@Override
 	public ResponseEntity<?> reportTransaction(long user_id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<TransactionDataEntity> listTransactionDataEntity = (ArrayList<TransactionDataEntity>) transactionDBConexion.listTransaction(user_id).getBody();
+		ArrayList<TransactionReportResponseDto> listTransactionReportResponseDto = new ArrayList<TransactionReportResponseDto>();
+
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(transactionUtil.historialInfo(10,listTransactionReportResponseDto,listTransactionDataEntity,0));
 	}
 
 	
