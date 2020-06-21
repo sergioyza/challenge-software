@@ -34,7 +34,7 @@ public class WeeksUtil {
 		if(dayOfMonth==1 && !first) {
 			calendar.set(Calendar.HOUR,0);
 			calendar.set(Calendar.MINUTE,0);
-			calendar.set(Calendar.SECOND,0);
+			calendar.set(Calendar.SECOND,-1);
 			Date dateReturn = calendar.getTime();
 			return dateReturn;
 		}

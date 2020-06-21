@@ -4,13 +4,16 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class TransactionDataRequestDto {
 
 	private float amount;
 	private String description;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date date;
 	private long user_id;
+	
 	public float getAmount() {
 		return amount;
 	}

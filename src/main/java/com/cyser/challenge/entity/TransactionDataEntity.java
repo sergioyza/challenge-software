@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
@@ -23,7 +24,7 @@ public class TransactionDataEntity {
 	private long id;
 	private float amount;
 	private String description;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date date;
 	@Column(name = "user_id", nullable = false)
 	@JsonProperty("user_id")

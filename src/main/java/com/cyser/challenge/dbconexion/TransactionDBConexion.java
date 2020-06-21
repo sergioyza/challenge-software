@@ -1,8 +1,6 @@
 package com.cyser.challenge.dbconexion;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,20 +9,21 @@ import org.springframework.stereotype.Component;
 
 import com.cyser.challenge.dto.ExceptionResponseDto;
 import com.cyser.challenge.dto.TransactionDataRequestDto;
-import com.cyser.challenge.dto.TransactionDataResponseDto;
 import com.cyser.challenge.entity.TransactionDataEntity;
 import com.cyser.challenge.repository.TransactionDataRepository;
+import com.cyser.challenge.util.TransactionUtil;
 
 @Component
 public class TransactionDBConexion {
 
 	@Autowired
 	TransactionDataRepository transactionDataRepository;
+	@Autowired
+	TransactionUtil transactionUtil;
 
 	public ResponseEntity<?> addTransaction(TransactionDataRequestDto transactionDataRequestDto) {
 		
 		ExceptionResponseDto responseExceptionDto= new ExceptionResponseDto();
-		Date date = new Date();
 		
 		try {		
 		TransactionDataEntity newTransaction = new TransactionDataEntity();
