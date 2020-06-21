@@ -1,5 +1,6 @@
 package com.cyser.challenge.util;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -32,8 +33,9 @@ public class TransactionUtil {
 				Calendar lastDayWeek = GregorianCalendar.getInstance();
 				lastDayWeek.setTime(startWeek);
 				Date endCalendar = weeks.EndWeek(lastDayWeek,true); 
-				System.out.println("startWeek: "+startWeek);
+				System.out.println("startWeek: "+getStringDate(startWeek));
 				System.out.println("endCalendar: "+endCalendar);
+				System.out.println("endCalendar: "+getStringDate(endCalendar));
 				
 				ArrayList<TransactionDataEntity> listTransactionDataEntityTarget = new ArrayList<TransactionDataEntity>();
 				
@@ -64,8 +66,8 @@ public class TransactionUtil {
 				
 				TransactionReportResponseDto transactionReportResponseDto = new TransactionReportResponseDto();
 				transactionReportResponseDto.setId(transactionDataEntity.getUserId());
-				transactionReportResponseDto.setWeekStart(startWeek);
-				transactionReportResponseDto.setWeeekFinish(endCalendar);
+				transactionReportResponseDto.setWeekStart(getStringDate(startWeek));
+				transactionReportResponseDto.setWeekFinish(getStringDate(endCalendar));
 				transactionReportResponseDto.setQuantity(listTransactionDataEntityTarget.size());
 				transactionReportResponseDto.setAmmount(ammountUnit);
 				transactionReportResponseDto.setTotalAmount(total);
@@ -78,5 +80,11 @@ public class TransactionUtil {
 					System.out.println("Error: "+e.getStackTrace());
 					return e;
 				}
+	}
+	
+	public String getStringDate(Date date) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd EEEE ");
+		String stringDate = sdf.format(date);
+		return stringDate;
 	}
 }

@@ -7,10 +7,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class TransactionReportResponseDto {
 
 	private long id;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date weekStart;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date weeekFinish;
+	private String weekStart;
+	private String weekFinish;
 	private int Quantity;
 	private float ammount;
 	private float totalAmount;
@@ -20,17 +18,17 @@ public class TransactionReportResponseDto {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public Date getWeekStart() {
+	public String getWeekStart() {
 		return weekStart;
 	}
-	public void setWeekStart(Date weekStart) {
+	public void setWeekStart(String weekStart) {
 		this.weekStart = weekStart;
 	}
-	public Date getWeeekFinish() {
-		return weeekFinish;
+	public String getWeekFinish() {
+		return weekFinish;
 	}
-	public void setWeeekFinish(Date weeekFinish) {
-		this.weeekFinish = weeekFinish;
+	public void setWeekFinish(String weekFinish) {
+		this.weekFinish = weekFinish;
 	}
 	public int getQuantity() {
 		return Quantity;
@@ -52,7 +50,7 @@ public class TransactionReportResponseDto {
 	}
 	@Override
 	public String toString() {
-		return "TransactionReportResponseDto [id=" + id + ", weekStart=" + weekStart + ", weeekFinish=" + weeekFinish
+		return "TransactionReportResponseDto [id=" + id + ", weekStart=" + weekStart + ", weeekFinish=" + weekFinish
 				+ ", Quantity=" + Quantity + ", ammount=" + ammount + ", totalAmount=" + totalAmount + "]";
 	}
 

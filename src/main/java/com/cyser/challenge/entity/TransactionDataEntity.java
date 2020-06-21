@@ -11,18 +11,22 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "transactions")
 public class TransactionDataEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonProperty("transaction_id")
 	private long id;
 	private float amount;
 	private String description;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date;
 	@Column(name = "user_id", nullable = false)
+	@JsonProperty("user_id")
 	private long userId;
 
 

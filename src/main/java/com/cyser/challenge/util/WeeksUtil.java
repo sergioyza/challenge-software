@@ -35,13 +35,14 @@ public class WeeksUtil {
 			calendar.set(Calendar.HOUR,0);
 			calendar.set(Calendar.MINUTE,0);
 			calendar.set(Calendar.SECOND,0);
-			return calendar.getTime();
+			Date dateReturn = calendar.getTime();
+			return dateReturn;
 		}
 		if(dayOfWeek==5) {
 			calendar.add(Calendar.DATE,1);
 			calendar.set(Calendar.HOUR,0);
 			calendar.set(Calendar.MINUTE,0);
-			calendar.set(Calendar.SECOND,0);
+			calendar.set(Calendar.SECOND,-1);
 			return calendar.getTime();
 			
 		}
