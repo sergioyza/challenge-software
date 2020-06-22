@@ -14,12 +14,10 @@ import com.cyser.challenge.repository.TransactionDataRepository;
 import com.cyser.challenge.util.TransactionUtil;
 
 @Component
-public class TransactionDBConexion {
+public class TransactionDBConexion extends TransactionUtil {
 
 	@Autowired
 	TransactionDataRepository transactionDataRepository;
-	@Autowired
-	TransactionUtil transactionUtil;
 
 	public ResponseEntity<?> addTransaction(TransactionDataRequestDto transactionDataRequestDto) {
 		

@@ -7,12 +7,11 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.cyser.challenge.dto.TransactionReportResponseDto;
 import com.cyser.challenge.entity.TransactionDataEntity;
 
-@Component
+
 public class TransactionUtil {
 
 	@Autowired
