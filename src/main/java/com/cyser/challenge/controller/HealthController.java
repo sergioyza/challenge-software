@@ -14,7 +14,7 @@ public class HealthController {
 	@GetMapping("")
 	public Map<String,String> Health_check(){
 		Map<String,String> versionProyect  = new HashMap<>();
-		versionProyect.put("version","1.0.0");
+		versionProyect.put("version","1.1.0");
 		versionProyect.put("status","200");
 		return versionProyect;
 	}
